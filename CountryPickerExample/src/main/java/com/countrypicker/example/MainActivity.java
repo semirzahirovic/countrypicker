@@ -22,7 +22,7 @@ public class MainActivity extends FragmentActivity {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
 
-        CountryPicker picker = new CountryPicker();
+        CountryPicker picker = CountryPicker.newInstance("", true);
         picker.setListener(new CountryPickerListener() {
 
             @Override
@@ -49,7 +49,7 @@ public class MainActivity extends FragmentActivity {
 
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                CountryPicker picker = CountryPicker.newInstance("Select Country");
+                CountryPicker picker = CountryPicker.newInstance("Select Country", false);
                 picker.setListener(new CountryPickerListener() {
 
                     @Override

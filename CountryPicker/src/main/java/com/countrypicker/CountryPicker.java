@@ -27,10 +27,11 @@ public class CountryPicker extends DialogFragment {
      * @param dialogTitle String set as dialog title
      * @return CountryPicker instance
      */
-    public static CountryPicker newInstance(String dialogTitle) {
+    public static CountryPicker newInstance(String dialogTitle, boolean getCurrentCountryFromLocation) {
         CountryPicker picker = new CountryPicker();
         Bundle bundle = new Bundle();
         bundle.putString("dialogTitle", dialogTitle);
+        bundle.putBoolean("getCurrentCountryFromLocation", getCurrentCountryFromLocation);
         picker.setArguments(bundle);
         return picker;
     }
@@ -114,6 +115,9 @@ public class CountryPicker extends DialogFragment {
                 filter(s.toString());
             }
         });
+
+        if(getArguments() != null && getArguments().getBoolean("getCurrentCountryFromLocation"))
+            searchEditText.setText(Utils.getCountryName(getContext()));
     }
 
     /**
