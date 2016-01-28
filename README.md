@@ -41,6 +41,10 @@ dependencies {
 
 Note the library requires 'com.android.support:support-v4'
 
+If you want to use the country auto-selection based on the user locatiion you must put this permission in your app manifest:
+```java
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+```
 
 ## How to use
 
