@@ -48,7 +48,8 @@ To use CountryPicker in your code as a fragment:
 
 ```java
 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-CountryPicker picker = new CountryPicker();
+//The second parameter determines if the country must be auto-selected from the user current location.
+CountryPicker picker = CountryPicker.newInstance(null, true);
 transaction.replace(R.id.home, picker);
 transaction.commit();
 ```
@@ -56,7 +57,8 @@ transaction.commit();
 To show CountryPicker as a dialog:
 
 ```java
-CountryPicker picker = CountryPicker.newInstance("Select Country");
+//The second parameter determines if the country must be auto-selected from the user current location.
+CountryPicker picker = CountryPicker.newInstance("Select Country", true);
 picker.show(getSupportFragmentManager(), "COUNTRY_PICKER");
 ```
 
@@ -77,8 +79,8 @@ To receive the data that the picker uses:
 ```java
 CountryProvider countryProvider = new CountryProvider(context);
 
-Country de = countryProvider.getCountryByCode("DE"); // ignores case
-Log.d(de.getName()) // Germany
+Country de = countryProvider.getCountryByCode("ES"); // ignores case
+Log.d(de.getName()) // Spain
 
 List<Country> countries = countryProvider.getCountries();
 ```
@@ -89,6 +91,8 @@ The data is from CountryPicker by nicklockwood (https://github.com/nicklockwood/
 I converted his data in "Countries.plist" to json format to avoid extra dependency.
 
 Thanks Nick for his awesome library!
+
+Thanks to Javi for the Spanish translation (https://github.com/Mun0n/AndroidCountryPicker)
 
 ## License
 See LICENSE.md
