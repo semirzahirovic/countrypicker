@@ -10,15 +10,15 @@ buildscript {
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group 'com.github.SocialbitGmbH'
+group 'com.github.semirzahirovic'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    buildToolsVersion '23.0.3'
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 17
+        minSdkVersion 15
+        targetSdkVersion 22
     }
     buildTypes {
         release {
@@ -32,5 +32,5 @@ android {
 }
 
 dependencies {
-    provided 'com.android.support:support-v4:23.0.0'
+    provided 'com.android.support:appcompat-v7:23.3.0'
 }
